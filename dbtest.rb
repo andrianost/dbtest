@@ -1,6 +1,6 @@
 #database connetion
 require "mysql2"
-connect = Mysql2::Client.new(:host => "localhost", :username => "root", :password => "", :database => "test")
+connect = Mysql2::Client.new(:host => "localhost", :username => "root", :password => "root", :database => "test")
 result = connect.query("SELECT * FROM pet")
 result.each {  |x| puts x }
 
