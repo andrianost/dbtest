@@ -1,6 +1,6 @@
-require "mysql2"
 #database connetion
-connect = Mysql2::Client.new(:host => "localhost", :username => "root", :password => "$gates07", :database => "test")
+require "mysql2"
+connect = Mysql2::Client.new(:host => "localhost", :username => "root", :password => "", :database => "test")
 result = connect.query("SELECT * FROM pet")
 result.each {  |x| puts x }
 
@@ -13,8 +13,11 @@ owner = gets.chomp
 print "What type of pet do you have? "
 species = gets.chomp
 
+#sends newly entered dara into the database
 result = connect.query("INSERT INTO pet VALUES('#{name}', '#{owner}', '#{species}')")
 #puts "Number of rows inserted: #{dbh.affected_rows}"
 
 result = connect.query("SELECT * FROM pet")
 result.each {  |x| puts x }
+
+#puts "Here is your hash: '#{data_hash}'"
